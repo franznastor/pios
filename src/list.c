@@ -24,8 +24,10 @@ void list_remove(struct list_element **head_ref, int position){
 	/*Checks if linked list is empty*/
 	if (*head_ref == NULL)
 	return;
+
 	//Stores to head node
 	struct list_element* temp = *head_ref;
+
 	//If zero position needs to be removed
 	if (position == 0){
 		*head_ref = temp->next;
@@ -36,10 +38,10 @@ void list_remove(struct list_element **head_ref, int position){
 	for (int i = 0; temp!=NULL && i<position-1; i++)
 		temp = temp->next;
 	//If position is more than the number of elements in the linked list
-	if (temp == NULL || temp->next = NULL)
+	if (temp == NULL || temp->next == NULL)
 	return;
 }
-	
+	//Unlinks element from list
 	struct list_element *next = temp->next->next;
 	free(temp->next);
 	temp->next = next;
