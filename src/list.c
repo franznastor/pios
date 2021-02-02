@@ -40,20 +40,9 @@ void list_remove(struct list_element **head_ref, int position){
 	//If position is more than the number of elements in the linked list
 	if (temp == NULL || temp->next == NULL)
 	return;
-}
+
 	//Unlinks element from list
 	struct list_element *next = temp->next->next;
 	free(temp->next);
 	temp->next = next;
 }
-
-
-
-
-
-
-
-
-
-
-void list_remove()
