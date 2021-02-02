@@ -7,7 +7,7 @@ void list_add(struct list_element* last_elem, int new_data){
 	
 	/* Checks if last node is NULL*/
 	if (last_elem == NULL){	
-	printf("Given last node cannot be NULL");
+	printf("Given last element cannot be NULL");
 	return;
 	}
 
@@ -16,7 +16,7 @@ void list_add(struct list_element* last_elem, int new_data){
 	struct list_element* new_elem = (struct list_element*) malloc(sizeof(struct list_element));
 	new_elem->data = new_data;
 	new_elem->next = last_elem->next;
-	prev_node->next = new_elem;
+	last_elem->next = new_elem;
 } 
 
 
