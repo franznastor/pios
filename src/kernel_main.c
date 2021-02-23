@@ -1,11 +1,11 @@
-#include <stdio.h>"
+#include <stdio.h>
 #include "gpio.h"
 
 extern long __bss_start;
 extern long __bss_end;
 
 int clear_bss() {
-        //Points  begin_bss to address 
+        //Points begin_bss to address 
         long *begin_bss = &__bss_start;
         long *end_bss = &__bss_end;
         while(begin_bss != end_bss){

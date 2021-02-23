@@ -1,5 +1,5 @@
 
-#include "led.h" //Defines GPIO registers
+#include "gpio.h" //Defines GPIO registers
 #include <stdio.h>
 
 unsigned int *gpfsel4 = 0xFE200010;
