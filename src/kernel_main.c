@@ -21,9 +21,9 @@ void kernel_main(){
 	led_init();
 	while(1) {
 		led_on();
-		delay(2);
+		delay();
 		led_off();
-		delay(2);
+		delay();
 	}
 
 }
