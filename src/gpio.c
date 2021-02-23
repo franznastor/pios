@@ -2,15 +2,15 @@
 #include "gpio.h" //Defines GPIO registers
 #include <stdio.h>
 
-unsigned int *gpfsel4 = 0xFE200010;
+unsigned int *gpsel4 = 0xFE200010;
 unsigned int *gpset1 = 0xFE200020;
 unsigned int *gpclr1 = 0xFE20002C;
 
 void led_init() {
 	unsigned int mask_number = 0xFFFFFE3F;
 	//GPIO42 initialize to output "876"->"001"
-	*gpfsel4 = *gpfsel4 & mask_number;
-	*gpfsel4 = *gpfsel4 | (1 << 6);
+	*gpsel4 = *gpsel4 & mask_number;
+	*gpsel4 = *gpsel4 | (1 << 6);
 	return;
 }
 
