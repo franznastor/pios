@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "list.h"
 #include "gpio.h"
 
 extern long __bss_start;
