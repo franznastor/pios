@@ -1,6 +1,5 @@
-
-#include "gpio.h" //Defines GPIO registers
 #include <stdio.h>
+#include "gpio.h" //Defines GPIO registers
 
 unsigned int *gpsel4 = 0xFE200010;
 unsigned int *gpset1 = 0xFE200020;
