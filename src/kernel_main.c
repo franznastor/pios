@@ -1,25 +1,28 @@
-#include <stdio.h>
-
+#include <stdio.h>"
+#include "gpio.h"
 
 extern long __bss_start;
 extern long __bss_end;
 
-void clear_bss(){
-    int x = 0;
-    while ((&__bss_start)+x != &__bss_end){
-        (&__bss_start)[x]=0;
-        x++;
-    }
+int clear_bss() {
+        //Points  begin_bss to address 
+        long *begin_bss = &__bss_start;
+        long *end_bss = &__bss_end;
+        while(begin_bss != end_bss){
+                *begin_bss = 0;
+                begin_bss++;
+        }
+        return 0;
 }
 
-void kernel_main() {
-    clear_bss();
-    while(1){}
-}
+void kernel_main(){
+	//clear_bss();
+	led_init();
+	while(1) {
+		led_on();
+		delay(2);
+		led_off();
+		delay(2);
+	}
 
-
-void kernel_main() {
-
-    while(1){
-    }
 }
