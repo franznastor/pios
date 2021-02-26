@@ -18,12 +18,13 @@ int clear_bss() {
 
 void kernel_main(){
 	//clear_bss();
-	led_init();
-	while(1) {
-		led_on();
-		delay();
-		led_off();
-		delay();
-	}
+	//led_init();
+	//while(1) {
+	//	led_on();
+	//	delay();
+	//	led_off();
+	//	delay();
+	//}
+	esp_printf(putc, "memory location: %d\r\n", kernel_main)
 
 }
