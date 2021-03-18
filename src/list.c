@@ -1,48 +1,42 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include<stddef.h>
 #include "list.h"
 
+//from Ben
+/*
+ * listAdd
+ *
+ * Adds newElement to a linked list pointed to by list. When calling this function, pass the address of list head.
+ *
+ */
+void listAdd(struct listElement **head, struct listElement *newElement){
+    struct listElement *iterator = (struct listElement*)head ;
 
-void list_add(struct list_element* last_elem, int new_data){
-	
-	/* Checks if last node is NULL*/
-	if (last_elem == NULL){
-	printf("Given last element cannot be NULL");
-	return;
-	}
+    // Link element b into the list between iterator and iterator->next.
+    newElement->next = iterator->next ;
+    newElement->prev = iterator ;
 
-	/*Allocates new list element, loads in data for new list element,make next of new element as next of last
-	element, moves next of last element as new element*/ 
-	struct list_element* new_elem = (struct list_element*) malloc(sizeof(struct list_element));
-	new_elem->data = new_data;
-	new_elem->next = last_elem->next;
-	last_elem->next = new_elem;
+    iterator->next = newElement ;
+
+    if(newElement->next != NULL){
+        newElement->next->prev = newElement ;
+    }
 }
 
 
-void list_remove(struct list_element **head_ref, int position){
-	/*Checks if linked list is empty*/
-	if (*head_ref == NULL)
-	return;
+/*
+ * listDelete
+ *
+ * Deletes an element from a doubly linked list.
+ */
+void listRemove(struct listElement *b)
+{
+	if(b->next != NULL)
+		b->next->prev = b->prev ;
 
-	//Stores to head node
-	struct list_element* temp = *head_ref;
+	b->prev->next = b->next ;
 
-	//If zero position needs to be removed
-	if (position == 0){
-		*head_ref = temp->next;
-		free(temp);
-		return;
-	}
-	//Finds the position of the previous node to be deleted
-	for (int i = 0; temp!=NULL && i<position-1; i++)
-		temp = temp->next;
-	//If position is more than the number of elements in the linked list
-	if (temp == NULL || temp->next == NULL)
-	return;
-
-	//Unlinks element from list
-	struct list_element *next = temp->next->next;
-	free(temp->next);
-	temp->next = next;
+	// NULLify the element's next and prev pointers to indicate
+	// that it is not linked into a list.
+	b->next = NULL ;
+	b->prev = NULL ;
 }

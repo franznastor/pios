@@ -16,6 +16,7 @@
 /* that is unacceptable in most embedded systems.    */
 /*---------------------------------------------------*/
 
+
 static func_ptr out_char;
 static int do_padding;
 static int left_flag;
@@ -46,7 +47,6 @@ int isdig(int c) {
         return 0;
     }
 }
-
 
 
 

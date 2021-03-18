@@ -18,6 +18,7 @@ OBJS = \
 	gpio.o \
 	rprintf.o \
 	serial.o \
+	page.o \
 
 
 OBJ = $(patsubst %,$(ODIR)/%,$(OBJS))
