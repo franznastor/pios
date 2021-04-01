@@ -19,6 +19,9 @@ OBJS = \
 	rprintf.o \
 	serial.o \
 	page.o \
+	sd.o \
+	fat.o \
+	clibfuncs.o \
 
 
 OBJ = $(patsubst %,$(ODIR)/%,$(OBJS))
