@@ -2,6 +2,11 @@
 #include "rprintf.h"
 #include "serial.h"
 #include "page.h"
+#include "gpio.h"
+#include "fat.h"
+#include "sd.h"
+
+
 #define NULL (void*)0
 
 
@@ -15,7 +20,7 @@ extern struct ppage* free_list;
 int global;
 
 void kernel_main(){
-
+	/*
 	init_pfa_list();
 	struct ppage* test = free_list->next;
 	esp_printf(putc, "Physcial address:  %x \n", test->physical_addr);
@@ -31,8 +36,13 @@ void kernel_main(){
 	list_add(list, &c);
 	list_remove(head, 1);*/
 
+	struct file fat_test;
+	sd_init();
+	fatInit();
+	fatOpen(&fat_test, "TESTSTART");
+	fatRead(&fat_test, "TESTFILE, 32);
+	
 	while (1){
-
 	/*esp_printf(putc, "memory location: %d\r\n", kernel_main)*/
 	}
 }
